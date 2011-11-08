@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+<ScrollView android:id="@+id/ScrollView01" android:layout_width="fill_parent" android:layout_height="fill_parent">
+<LinearLayout 
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+>
+<EditText android:text="@+id/EditText01" android:id="@+id/EditText01" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
+<EditText android:text="@+id/EditText02" android:id="@+id/EditText02" android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
+
+
+<EditText android:text="@+id/EditText03" android:id="@+id/EditText03" android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
+<EditText android:text="@+id/EditText04" android:id="@+id/EditText04" android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
+<EditText android:text="@+id/EditText05" android:id="@+id/EditText05" android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
+<EditText android:text="@+id/EditText06" android:id="@+id/EditText06" android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
+<EditText android:text="@+id/EditText07" android:id="@+id/EditText07" android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
+
+<LinearLayout
+android:orientation="horizontal"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+
+>
+
+<Button android:text="Kirim" android:id="@+id/send" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+<Button android:text="Batal" android:id="@+id/reset" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+</LinearLayout>
+</LinearLayout>
+</ScrollView>
+</LinearLayout>
