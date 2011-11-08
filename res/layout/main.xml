@@ -16,7 +16,7 @@ android:layout_height="fill_parent"
 
 
 <EditText  android:focusable="false" android:hint="tanggal" android:id="@+id/tanggal" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
-<EditText android:hint="waktu" android:id="@+id/waktu" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
+<EditText android:focusable="false" android:hint="waktu" android:id="@+id/waktu" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
 <EditText android:hint="Nomor Telp" android:id="@+id/nope" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
 <EditText android:hint="Tujuan" android:id="@+id/tujuan" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
 <EditText android:hint="jumlah" android:id="@+id/jumlah" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
@@ -24,12 +24,17 @@ android:layout_height="fill_parent"
 <LinearLayout
 android:orientation="horizontal"
 android:layout_width="fill_parent"
-android:layout_height="fill_parent"
+android:layout_height="wrap_content"
 
 >
 
-<Button android:text="Kirim" android:id="@+id/send" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-<Button android:text="Batal" android:id="@+id/reset" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+
+
+<Button android:text="Kirim" android:id="@+id/send" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="left"></Button>
+<Button android:text="Batal" android:id="@+id/reset" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="right"></Button>
+
+
+
 </LinearLayout>
 </LinearLayout>
 </ScrollView>
