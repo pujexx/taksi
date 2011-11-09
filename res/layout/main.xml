@@ -17,9 +17,9 @@ android:layout_height="fill_parent"
 
 <EditText  android:focusable="false" android:hint="tanggal" android:id="@+id/tanggal" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
 <EditText android:focusable="false" android:hint="waktu" android:id="@+id/waktu" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
-<EditText android:hint="Nomor Telp" android:id="@+id/nope" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
+<EditText android:hint="Nomor Telp" android:id="@+id/nope" android:numeric="integer" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
 <EditText android:hint="Tujuan" android:id="@+id/tujuan" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
-<EditText android:hint="jumlah" android:id="@+id/jumlah" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
+<EditText android:hint="jumlah" android:id="@+id/jumlah" android:numeric="integer" android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
 
 <LinearLayout
 android:orientation="horizontal"

@@ -16,7 +16,7 @@ public class Koneksi {
             StringBuilder str = new StringBuilder();
             String line = null;
             while((line = reader.readLine()) != null){
-                str.append(line + "\n");
+                str.append(line + "");
             }
             in.close();
             result = str.toString();
