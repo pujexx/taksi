@@ -13,12 +13,14 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.TimePickerDialog.OnTimeSetListener;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -46,7 +48,7 @@ public class Taksi extends Activity {
 
 	private String sendTanggal,status;
 	private ProgressDialog Loading;
-	
+	private AlertDialog submit;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -165,6 +167,31 @@ public class Taksi extends Activity {
 		return true;
 		}
 	}
+	public void submitSuccess(){
+		submit = new AlertDialog.Builder(Taksi.this).create();
+		submit.setTitle("Sukses");
+		submit.setMessage("Berhasil \n"+ 
+				"Nama : "+nama.getText().toString()+
+				"\nAlamat : "+alamat.getText().toString()+
+				"\nTanggal : "+tanggal.getText().toString()+
+				"\nJam : "+waktu.getText().toString()+
+				"\nTelp : "+nope.getText().toString()+
+				"\nTujuan : "+tujuan.getText().toString()+
+				"\nJumlah : "+jumlah.getText().toString()	
+		);
+		submit.setButton("OK",new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+				resetForm();
+				Toast.makeText(Taksi.this,"Data telah tersimpan", Toast.LENGTH_LONG).show();
+				return ;
+			}
+		});
+		submit.show();
+		
+	}
 	// request to server
 	@SuppressWarnings( { "unchecked" })
 	public void getRequest() {
@@ -195,11 +222,9 @@ public class Taksi extends Activity {
 			if(status.equals("true") || status.equals("false")){
 				Loading.dismiss();
 				if(status.equals("true")){
-					resetForm();
+					submitSuccess();
 					
-				}
-				Toast.makeText(Taksi.this, status,
-						Toast.LENGTH_LONG).show();
+				}			
 
 			}
 			
