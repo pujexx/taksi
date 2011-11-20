@@ -37,6 +37,7 @@ public class Taksi extends Activity {
 	static final int DATE_DIALOG_ID = 0;
 	static final int TIME_DIALOG_ID = 1;
 	static final int DIALOG_LOADING_ID = 2;
+	static final int DIALOG_PILIH=3;
 	private int mYear;
 	private int mMonth;
 	private int mDay;
@@ -64,6 +65,7 @@ public class Taksi extends Activity {
 		jumlah = (EditText) findViewById(R.id.jumlah);
 		send = (Button) findViewById(R.id.send);
 		reset = (Button) findViewById(R.id.reset);
+		final CharSequence[] pilihanjumlah = {"1", "2", "3","4"};
 		tanggal.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -79,20 +81,42 @@ public class Taksi extends Activity {
 				showDialog(TIME_DIALOG_ID);
 			}
 		});
+		jumlah.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				AlertDialog.Builder pilih = new AlertDialog.Builder(Taksi.this);
+				pilih.setTitle("Jumlah Penumpang");
+				pilih.setSingleChoiceItems(pilihanjumlah, -1, new DialogInterface.OnClickListener() {
+					
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+					    jumlah.setText(pilihanjumlah[which].toString());
+					    dialog.dismiss();
+					  
+					}
+				});
+				pilih.create().show();
+			}
+		});
 		send.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if(formValidation()==false){
-					Toast.makeText(Taksi.this, "Harus diisi semua", Toast.LENGTH_LONG).show();
+					
+						Toast.makeText(Taksi.this, "Harus diisi semua", Toast.LENGTH_LONG).show();
+				
+					
 				}else{
 				Loading = new ProgressDialog(Taksi.this);
 				Loading.setMessage("Procesing..");
 				Loading.show();
-				getRequest();
+				postRequest();
 				}
 			}
 		});
+		
 		reset.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -122,7 +146,11 @@ public class Taksi extends Activity {
 
 			return new TimePickerDialog(Taksi.this, setWaktu, mHour, mMinute,
 					true);
+		case DIALOG_PILIH :
+		
 		}
+	
+			
 		return null;
 	}
 
@@ -163,7 +191,7 @@ public class Taksi extends Activity {
 		if(nama.getText().toString().equals("")||alamat.getText().toString().equals("")||tanggal.getText().toString().equals("")||waktu.getText().toString().equals("")||nope.getText().toString().equals("")||tujuan.getText().toString().equals("")||jumlah.getText().toString().equals("")){
 		  return false;
 		  }
-		else {
+		else{
 		return true;
 		}
 	}
@@ -194,7 +222,7 @@ public class Taksi extends Activity {
 	}
 	// request to server
 	@SuppressWarnings( { "unchecked" })
-	public void getRequest() {
+	public void postRequest() {
 		Log.d("getRequest", url);
 		HttpClient client = new DefaultHttpClient();
 		HttpPost request = new HttpPost(url);
